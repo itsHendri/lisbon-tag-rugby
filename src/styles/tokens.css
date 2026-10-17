@@ -1,0 +1,36 @@
+/* ---------------------------------------------------------------------------
+   Design tokens — Lisbon-inspired, sand/ink base with a terracotta accent.
+   (Quechua-lookbook-style warm neutrals, but ours.)
+   Swap these once the Figma brand tokens arrive — everything references them.
+--------------------------------------------------------------------------- */
+
+:root {
+  /* Neutrals */
+  --paper: #f1ecdf;        /* light sand background */
+  --paper-2: #e7dfcd;      /* deeper sand, alt light bg */
+  --paper-3: #ddd3bd;      /* sand, borders/cards on light */
+  --ink: #1a150f;          /* near-black warm */
+  --ink-2: #262018;        /* dark section bg */
+  --ink-soft: #4a4033;     /* secondary text on light */
+  --sand: #f1ecdf;         /* text on dark */
+  --sand-soft: #b8ad97;    /* secondary text on dark */
+  --line: rgba(26, 21, 15, 0.16);
+  --line-dark: rgba(241, 236, 223, 0.18);
+
+  /* Accents */
+  --terra: #c8522b;        /* terracotta — big accents, numbers, CTAs */
+  --terra-deep: #a63e1f;
+  --pitch: #2f5b4c;        /* field green — small accents */
+
+  /* Type */
+  --font-display: "LisbonTag", "Georgia", serif;
+  --font-body: "Archivo", system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --gutter: clamp(20px, 5vw, 56px);
+  --section-pad: clamp(88px, 14vh, 160px);
+  --radius: 20px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

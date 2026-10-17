@@ -1,0 +1,55 @@
+---
+import type { Lang, Content } from "../i18n/types";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+
+// First-club-shirt mockup. Green body / sand shoulders / terracotta chevron,
+// blackletter monogram on the chest — swap for a real product photo when one exists.
+const PITCH = "#2f5b4c";
+const SAND = "#f1ecdf";
+const TERRA = "#c8522b";
+---
+
+<section class="section" id="kit" data-contrast="dark">
+  <div class="container kit-grid">
+    <div class="jersey-wrap reveal">
+      <svg class="jersey" viewBox="0 0 320 340" role="img" aria-label="Lisbon Tag club shirt mockup">
+        <!-- sleeves -->
+        <path d="M52 58 L18 118 L58 150 L84 118 Z" fill={SAND} />
+        <path d="M268 58 L302 118 L262 150 L236 118 Z" fill={SAND} />
+        <!-- body -->
+        <path
+          d="M84 48 Q160 88 236 48 L244 120 L244 300 Q160 322 76 300 L76 120 Z"
+          fill={PITCH}
+        />
+        <!-- shoulder yoke -->
+        <path d="M84 48 Q160 88 236 48 L238 74 Q160 110 82 74 Z" fill={SAND} />
+        <!-- chevron -->
+        <path d="M76 150 L160 196 L244 150 L244 178 L160 224 L76 178 Z" fill={TERRA} />
+        <!-- monogram -->
+        <text x="160" y="132" text-anchor="middle" font-size="44" fill={SAND} style="font-family: var(--font-display)">
+          LT
+        </text>
+        <text x="160" y="258" text-anchor="middle" font-size="17" fill={SAND} style="font-family: var(--font-body); letter-spacing: 4px; font-weight: 600">
+          LISBON
+        </text>
+      </svg>
+      <span class="kit-badge">{t.kit.badge}</span>
+    </div>
+
+    <div>
+      <p class="kicker reveal">{t.kit.kicker}</p>
+      <h2 class="section-title reveal" style="--d: 0.06s">{t.kit.title}</h2>
+      <p class="lead reveal" style="--d: 0.12s">{t.kit.body}</p>
+      <div class="btn-row reveal" style="--d: 0.18s">
+        <a class="btn btn-terra" href={t.kit.ctaHref} target="_blank" rel="noopener">
+          {t.kit.cta} <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

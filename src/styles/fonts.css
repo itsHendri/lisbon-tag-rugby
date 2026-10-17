@@ -1,0 +1,22 @@
+/* ---------------------------------------------------------------------------
+   Fonts
+   - LisbonTag: the club's custom blackletter display face (single weight).
+   - Archive: clean grotesque for body/UI (variable, 400-700).
+   Both are self-hosted in /public/fonts.
+--------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "LisbonTag";
+  src: url("/fonts/LisbonTag.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archive";
+  src: url("/fonts/archive.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}

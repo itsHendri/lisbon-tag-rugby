@@ -1,0 +1,39 @@
+---
+import type { Lang, Content } from "../i18n/types";
+import { en } from "../i18n/en";
+import { pt } from "../i18n/pt";
+import Layout from "./Layout.astro";
+import Header from "./Header.astro";
+import Hero from "./Hero.astro";
+import About from "./About.astro";
+import Rules from "./Rules.astro";
+import Where from "./Where.astro";
+import Gear from "./Gear.astro";
+import Kit from "./Kit.astro";
+import Join from "./Join.astro";
+import Photos from "./Photos.astro";
+import Footer from "./Footer.astro";
+import VideoPopup from "./VideoPopup.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t: Content = lang === "en" ? en : pt;
+---
+
+<Layout lang={lang}>
+  <Header lang={lang} t={t} />
+  <main id="main">
+    <Hero lang={lang} t={t} />
+    <About lang={lang} t={t} />
+    <Rules lang={lang} t={t} />
+    <Where lang={lang} t={t} />
+    <Gear lang={lang} t={t} />
+    <Kit lang={lang} t={t} />
+    <Join lang={lang} t={t} />
+    <Photos lang={lang} t={t} />
+  </main>
+  <Footer lang={lang} t={t} />
+  <VideoPopup t={t} />
+</Layout>

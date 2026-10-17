@@ -1,0 +1,37 @@
+---
+import type { Lang, Content } from "../i18n/types";
+import CoverButton from "./CoverButton.astro";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+
+// Hero background.
+// Currently a still (a rugby ball at a tag event, CC0) with a slow Ken Burns
+// zoom for a cinematic, "video-like" feel. When you have the real loop, drop
+// it at public/media/hero-loop.mp4 and swap the <img> below for:
+//   <video class="hero-media media" id="hero-video" autoplay muted loop playsinline src="/media/hero-loop.mp4"></video>
+const HERO = "/media/tag-event.jpg";
+---
+
+<section class="hero" id="top" data-contrast="dark">
+  <div class="hero-media" aria-hidden="true">
+    <img class="media kenburns" src={HERO} alt="" fetchpriority="high" />
+    <div class="hero-veil"></div>
+    <div class="hero-grain"></div>
+  </div>
+
+  <div class="hero-content container">
+    <p class="hero-kicker reveal">{t.hero.kicker}</p>
+    <h1 class="hero-title">
+      <span class="reveal" style="--d: 0.08s">{t.hero.titleA}</span><br /><em class="reveal" style="--d: 0.16s">{t.hero.titleB}</em>
+    </h1>
+    <p class="hero-sub reveal" style="--d: 0.24s">{t.hero.sub}</p>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">{t.hero.scroll}</div>
+</section>
+
+<CoverButton t={t} />

@@ -1,0 +1,57 @@
+---
+import type { Lang } from "../i18n/types";
+import "../styles/tokens.css";
+import "../styles/fonts.css";
+import "../styles/base.css";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const t =
+  lang === "en"
+    ? {
+        title: "Lisbon Tag Rugby — no tackles, all game",
+        description:
+          "Lisbon Tag Rugby is Belém's home of contactless rugby. Three tags, zero bruises, every Thursday 18:30 at Belém Park, Lisbon.",
+      }
+    : {
+        title: "Lisbon Tag Rugby — sem tackles, todo o jogo",
+        description:
+          "O Lisbon Tag Rugby é a casa lisboeta do rugby sem contacto. Três tags, zero dores, todas as quintas-feiras às 18:30, no Parque de Belém.",
+      };
+
+const other = lang === "en" ? "pt" : "en";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{t.title}</title>
+    <meta name="description" content={t.description} />
+
+    <link rel="icon" type="image/png" sizes="180x180" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+
+    <link rel="alternate" type="text/html" hreflang="en" href="/" />
+    <link rel="alternate" type="text/html" hreflang="pt" href="/pt/" />
+    <link rel="alternate" type="text/html" hreflang="x-default" href="/" />
+
+    <meta property="og:title" content={t.title} />
+    <meta property="og:description" content={t.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/media/og.png" />
+    <meta name="theme-color" content="#1a150f" />
+
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/LisbonTag.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archive.woff2" crossorigin />
+  </head>
+  <body data-lang={lang}>
+    <a class="skip-link" href="#about">Skip to content</a>
+    <slot />
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

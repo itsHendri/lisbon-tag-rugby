@@ -1,0 +1,45 @@
+---
+import type { Lang, Content } from "../i18n/types";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+const other = lang === "en" ? "pt" : "en";
+const otherPath = other === "pt" ? "/pt/" : "/";
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">{t.nav.wordmark}</div>
+        <p style="margin-top: 10px">{t.footer.tagline}</p>
+      </div>
+      <div>
+        <h4>{t.where.venue.split(",")[0]}</h4>
+        <p>
+          {t.where.when}
+          <br />
+          {t.join.steps[0].body}
+        </p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p>
+          <a href={t.nav.instagram} target="_blank" rel="noopener">@lisbontagrugby</a>
+          <br />
+          <a href={otherPath} hreflang={other}>
+            {other === "pt" ? "Português" : "English"}
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="credits">
+      {t.footer.credits}
+      <br />
+      {t.footer.made}
+    </div>
+  </div>
+</footer>

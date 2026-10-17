@@ -1,0 +1,32 @@
+---
+import type { Lang, Content } from "../i18n/types";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+---
+
+<section class="section" id="about" data-contrast="light">
+  <div class="container">
+    <p class="kicker reveal">{t.about.kicker}</p>
+    <h2 class="section-title reveal">{t.about.title}</h2>
+    <div class="lead reveal" style="--d: 0.08s">{t.about.p1}</div>
+    <div class="lead reveal" style="--d: 0.16s">{t.about.p2}</div>
+
+    <div class="photo-grid" style="margin-top: clamp(28px, 5vw, 52px)">
+      {
+        t.about.photos.map((p, i) => (
+          <figure
+            class:list={[`photo-card`, p.tall && "tall"], "reveal"}
+            style={`--d: ${0.08 * i}s`}
+          >
+            <img src={p.src} alt={p.alt} loading="lazy" width="1280" />
+            {p.caption && <figcaption class="tag">{p.caption}</figcaption>}
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

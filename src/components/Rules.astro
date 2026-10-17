@@ -1,0 +1,35 @@
+---
+import type { Lang, Content } from "../i18n/types";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+---
+
+<section class="section" id="game" data-contrast="dark">
+  <div class="container">
+    <p class="kicker reveal">{t.rules.kicker}</p>
+    <h2 class="section-title reveal">{t.rules.title}</h2>
+    <p class="lead reveal" style="--d: 0.08s">{t.rules.intro}</p>
+
+    <div class="rules-grid">
+      {
+        t.rules.cards.map((c, i) => (
+          <article class="rule-card reveal" style={`--d: ${0.1 * i}s`}>
+            <div class="num">{String(i + 1).padStart(2, "0")}</div>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <ul class="facts reveal">
+      {t.rules.facts.map((f) => <li>{f}</li>)}
+    </ul>
+
+    <p class="rules-note reveal">{t.rules.note}</p>
+  </div>
+</section>

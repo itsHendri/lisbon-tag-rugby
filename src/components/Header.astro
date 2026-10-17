@@ -1,0 +1,25 @@
+---
+import type { Lang, Content } from "../i18n/types";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+---
+
+<header class="site-header" data-contrast="dark">
+  <a class="brand" href="#top">
+    {t.nav.wordmark}
+    <small>{t.nav.sub}</small>
+  </a>
+  <div class="header-actions">
+    <a class="icon-btn" href={t.nav.instagram} target="_blank" rel="noopener" aria-label={t.nav.instagram}>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" /></svg>
+    </a>
+    <nav class="lang-toggle" aria-label="Language">
+      <a href="/" aria-current={lang === "en" ? "true" : "false"} hreflang="en">EN</a>
+      <a href="/pt/" aria-current={lang === "pt" ? "true" : "false"} hreflang="pt">PT</a>
+    </nav>
+  </div>
+</header>

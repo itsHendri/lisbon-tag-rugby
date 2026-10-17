@@ -1,0 +1,20 @@
+---
+import type { Content } from "../i18n/types";
+
+interface Props {
+  t: Content;
+}
+const { t } = Astro.props;
+---
+
+<button
+  class="cover-btn"
+  data-popup-open
+  aria-haspopup="dialog"
+  aria-controls="video-popup"
+>
+  <span class="label">{t.hero.cta}</span>
+  <span class="disc">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" /></svg>
+  </span>
+</button>

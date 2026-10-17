@@ -1,0 +1,33 @@
+---
+import type { Lang, Content } from "../i18n/types";
+
+interface Props {
+  lang: Lang;
+  t: Content;
+}
+const { lang, t } = Astro.props;
+---
+
+<section class="section" id="gear" data-contrast="alt">
+  <div class="container">
+    <p class="kicker reveal">{t.gear.kicker}</p>
+    <h2 class="section-title reveal">{t.gear.title}</h2>
+
+    <div class="gear-list">
+      {
+        t.gear.items.map((item, i) => (
+          <div class="gear-row reveal" style={`--d: ${0.06 * i}s`}>
+            <div class="gear-media">
+              <img src={item.img.src} alt={item.img.alt} loading="lazy" width="1280" />
+            </div>
+            <div>
+              <span class="idx">{String(i + 1).padStart(2, "0")}</span>
+              <h3>{item.name}</h3>
+              <p>{item.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
